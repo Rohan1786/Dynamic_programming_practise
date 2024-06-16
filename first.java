@@ -7,10 +7,8 @@ public class first {
             return n;
         }
 
-       
 
         return Fibo(n-1)+Fibo(n-2);
-
 
     }
 
@@ -31,21 +29,43 @@ int f2=Fibomemories(n-2, q);
         q[n]=fi;
         return fi;
        
-
-
     }
+//we are taking another recursion example to solve by using dp
 
+public static int factorial(int n,int[]qb)
+{
+    if(n==0||n==1){
+        return 1;
+    }
+    int fact1=factorial(n-1, qb);
+
+    // int fact2=factorial(n-2, qb);
+
+    int fact=n*fact1;
+    // int fact=n*fact1*fact2;
+
+    qb[n]=fact;
+    return fact;
+}
+
+//without recursion also we can aslo
+
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         
-        System.out.println("enter no to be in fibonanci values");
+        // System.out.println("enter no to be in fibonanci values");
+        System.out.println("enter no to be in factorial values");
         Scanner sc =new Scanner(System.in);
         int n=sc.nextInt();
 
        
 
-        int fibo=Fibomemories(n,new int[n+1]);
+        // int fibo=Fibomemories(n,new int[n+1]);
 
-        System.out.println(fibo);
+        // System.out.println(fibo);
+
+        int fact=factorial(n, new int[n+1]);
+        System.out.println(fact);
         
     }
 }
